@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser';
 import { contactRouter } from './routers/contacts.js';
 import { authRouter } from './routers/auth.js';
 import { UPLOAD_DIR } from './constants/auth.js';
+import { swaggerDocs } from './utils/swaggerDocs.js';
 
 export default function setupServer(){
     const app = express();
@@ -21,7 +22,9 @@ export default function setupServer(){
 
     app.use('/auth', authRouter);
     app.use(contactRouter);
+
     app.use('/uploads', express.static(UPLOAD_DIR));
+    app.use('/api-docs', swaggerDocs());
 
     app.use('*', notFoundHandler);
 

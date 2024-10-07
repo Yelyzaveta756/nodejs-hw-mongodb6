@@ -8,12 +8,26 @@ info:
   description:
     This is document od contacts application.
 tags:
-  # тут будуть посилання на ендпоінти
+  - name: Contacts
+    description: Operations about contacts.
+  - name: Auth
+    description: Auth operations.
 servers:
   - url: http://localhost:3000
-  - url: #посилання на задеплоєний сайт
+  # - url: #посилання на задеплоєний сайт
 paths:
-  # тут будуть посилання на ендпоінти
+  /contacts/{id}:
+        get:
+          $ref: ../swagger/paths/contacts/{id}/get.yaml
+        delete:
+          $ref: ../swagger/paths/contacts/{id}/delete.yaml
+        patch:
+          $ref: ../swagger/paths/contacts/{id}/patch.yaml
+  /contacts:
+        get:
+          $ref: ../swagger/paths/contacts/get.yaml
+        post:
+          $ref: ../swagger/paths/contacts/post.yaml
 components:
   securitySchemes:
     bearerAuth:

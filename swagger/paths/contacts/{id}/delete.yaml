@@ -1,7 +1,7 @@
 tags:
   - Contacts
 summary: Delete contact
-operationId: getContact
+operationId: deleteContact
 description: 'Delete contact by id.'
 security:
   - bearerAuth: []
@@ -17,6 +17,6 @@ responses:
     description: 'Delete a contact'
   '404':
     $ref: '../../../components/responses/404.yaml'
-    '401':
-      $ref: '../../../components/responses/401.yaml'
+  '401':
+    $ref: '../../../components/responses/401.yaml'
 
