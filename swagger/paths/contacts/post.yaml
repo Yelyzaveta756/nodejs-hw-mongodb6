@@ -3,23 +3,19 @@ tags:
   - Contacts
 summary: Create contact
 operationId: createContact
-description: 'Create a contact with payload'
+description: "Create a contact with payload."
 security:
   - bearerAuth: []
 requestBody:
   content:
     multipart/form-data:
       schema:
+        type: object
         required:
-        - userId
         - name
         - phoneNumber
         - contactType
         properties:
-          userId:
-            description: "Contact's user id"
-            type: string
-            example: 66cb4b87753df3d7c2651958
           name:
             description: "Contact's name"
             type: string
@@ -37,12 +33,13 @@ requestBody:
             type: boolean
             example: false
           contactType:
-            description: 'Type of phone number'
+            description: "Type of phone number"
             type: string
             enum: ['work', 'home', 'personal']
           photo:
             description: "Link to contact's photo"
             type: string
+            format: binary
             example: https://res.cloudinary.com/uqwgdu/image/upload/image.png
 responses:
   '201':
@@ -66,6 +63,8 @@ responses:
               type: object
               $ref: '../../components/schemas/contact.yaml'
   '404':
-   $ref: '../../components/responses/404.yaml'
+    $ref: '../../components/responses/404.yaml'
   '401':
-   $ref: '../../components/responses/401.yaml'
+    $ref: '../../components/responses/401.yaml'
+  '500':
+    $ref: '../../components/responses/500.yaml'

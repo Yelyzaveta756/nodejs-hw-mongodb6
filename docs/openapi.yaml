@@ -16,6 +16,24 @@ servers:
   - url: http://localhost:3000
   - url: https://nodejs-hw-mongodb6-trsd.onrender.com
 paths:
+  /auth/register:
+        post:
+          $ref: ../swagger/paths/auth/register.yaml
+  /auth/login:
+        post:
+          $ref: ../swagger/paths/auth/login.yaml
+  /auth/logout:
+        post:
+          $ref: ../swagger/paths/auth/logout.yaml
+  /auth/refresh:
+        post:
+          $ref: ../swagger/paths/auth/refresh.yaml
+  /auth/send-reset-email:
+        post:
+          $ref: ../swagger/paths/auth/send-reset-email.yaml
+  /auth/reset-pwd:
+        post:
+          $ref: ../swagger/paths/auth/reset-pwd.yaml
   /contacts/{id}:
         get:
           $ref: ../swagger/paths/contacts/{id}/get.yaml

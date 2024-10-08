@@ -1,8 +1,8 @@
 tags:
   - Contacts
-summary: Get list of contact
+summary: Get list of contact.
 operationId: getAllContacts
-description: 'Get list of contacts with this endpoint'
+description: "Get list of contacts with this endpoint."
 security:
   - bearerAuth: []
 parameters:
@@ -15,13 +15,13 @@ parameters:
     name: perPage
     schema:
       type: integer
-      example: 10
+      example: 3
   - in: query
     name: sortBy
     schema:
       type: string
-      example: 'age'
-    description: "All contact's fields can be mentioned. Default value - _id"
+      example: 'isFavourite'
+    description: "All contact's fields can be mentioned. Default value - _id."
   - in: query
     name: sortOrder
     schema:
@@ -82,5 +82,7 @@ responses:
   '401':
     $ref: '../../components/responses/401.yaml'
   '404':
-    $ref: '..\..\components\responses\404.yaml'
+    $ref: '../../components/responses/404.yaml'
+  '500':
+    $ref: '../../components/responses/500.yaml'
 

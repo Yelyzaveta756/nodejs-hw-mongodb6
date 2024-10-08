@@ -1,0 +1,51 @@
+tags:
+  - Auth
+summary: Send password reset email
+operationId: sendResetUser
+description: Sends an email to the user with a link to reset their password.
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          email:
+            type: string
+            format: email
+            description: The email address of the user who wants to reset their password.
+            example: "user@example.com"
+responses:
+  '200':
+    description: Password reset email successfully sent.
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: "Reset password email has been successfully sent."
+            data:
+              type: object
+  '404':
+    $ref: '../../components/responses/404.yaml'
+  '500':
+    description: Internal server error, failed to send the email.
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 500
+            message:
+              type: string
+              example: "Failed to send the email, please try again later."
+

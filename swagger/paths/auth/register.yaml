@@ -1,0 +1,58 @@
+tags:
+  - Auth
+summary: Get list of user.
+operationId: registerUser
+description: "Get list of users."
+security:
+  - bearerAuth: []
+requestBody:
+  content:
+    application/json:
+      schema:
+          type: object
+          required:
+          - name
+          - email
+          - password
+          properties:
+            name:
+              description: "User's name."
+              type: string
+              example: 'John Doe'
+            email:
+              description: "User's email."
+              type: string
+              example: examplemail1990@gmail.com
+            password:
+              description: "User's password"
+              type: string
+              example: '$2b$10$8WSgYzOLdCbwLKCNtHnrAegf.AIsP8m53sF6lZNQgvUVuUIcRMeUC'
+responses:
+  '201':
+    description: Register a user
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully registered a user!
+            data:
+              type: object
+              $ref: '../../components/schemas/auth.yaml'
+  '404':
+    $ref: '..\..\components\responses\404.yaml'
+  '409':
+    $ref: '..\..\components\responses\409.yaml'
+  '500':
+    $ref: '..\..\components\responses\500.yaml'
+
+

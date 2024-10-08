@@ -2,7 +2,7 @@ tags:
   - Contacts
 summary: Patch contact by id
 operationId: patchContact
-description: 'Update a contact with payload by id'
+description: "Update a contact with payload by id."
 security:
   - bearerAuth: []
 parameters:
@@ -18,20 +18,16 @@ requestBody:
       schema:
         type: object
         properties:
-          userId:
-            description: "Contact's user id"
-            type: string
-            example: 66cb4b87753df3d7c2651958
           name:
-            description: "Contact's name"
+            description: "Contact's name."
             type: string
             example: 'John Doe'
           phoneNumber:
-            description: "Contact's phone"
+            description: "Contact's phone."
             type: string
             example: +380000000001
           email:
-            description: "Contact's email"
+            description: "Contact's email."
             type: string
             example: examplemail1990@gmail.com
           isFavourite:
@@ -39,11 +35,11 @@ requestBody:
             type: boolean
             example: false
           contactType:
-            description: 'Type of phone number'
+            description: "Type of phone number."
             type: string
             enum: ['work', 'home', 'personal']
           photo:
-            description: "Link to contact's photo"
+            description: "Link to contact's photo."
             type: string
             example: https://res.cloudinary.com/uqwgdu/image/upload/image.png
 responses:
@@ -71,3 +67,5 @@ responses:
     $ref: '../../../components/responses/404.yaml'
   '401':
     $ref: '../../../components/responses/401.yaml'
+  '500':
+    $ref: '../../../components/responses/500.yaml'
